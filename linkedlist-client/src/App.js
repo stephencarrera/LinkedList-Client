@@ -1,6 +1,18 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import axios from "axios";
+import AddUserForm from "./components/molecules/AddUserForm";
+
+axios
+  .get("http://localhost:3010/users")
+  .then(resp => console.log(resp.data))
+  .catch(err => console.log(err));
+
+axios
+  .get("http://localhost:3010/companies")
+  .then(resp => console.log(resp.data))
+  .catch(err => console.log(err));
 
 class App extends Component {
   render() {
@@ -13,6 +25,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <AddUserForm />
       </div>
     );
   }
